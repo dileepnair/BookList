@@ -16,10 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hee-v2-fHq">
+                                <rect key="frame" x="0.0" y="91" width="390" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search book" translatesAutoresizingMaskIntoConstraints="NO" id="xuD-gl-DzS">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="5rY-d5-0YM"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gh-pJ-3gA">
+                                        <rect key="frame" x="315" y="0.0" width="75" height="56"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Ok"/>
+                                        <connections>
+                                            <action selector="okayButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="X5b-Tw-HM9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hee-v2-fHq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9xi-Ye-QqW"/>
+                            <constraint firstItem="hee-v2-fHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="afH-cP-421"/>
+                            <constraint firstItem="hee-v2-fHq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uCh-43-eTN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHu-R0-WBE"/>
+                    <connections>
+                        <outlet property="okayButton" destination="3Gh-pJ-3gA" id="AWS-L3-Tzm"/>
+                        <outlet property="searchBar" destination="xuD-gl-DzS" id="cTz-zT-Of2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
