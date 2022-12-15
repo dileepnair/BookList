@@ -12,4 +12,5 @@ public enum NetworkingConstants {
     /// Base url
     static let baseUrl = "https://openlibrary.org/"
     static let booksLimit = 10
+    static let coverUrl = "https://covers.openlibrary.org/b/id/"
 }

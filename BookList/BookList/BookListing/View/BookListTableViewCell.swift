@@ -29,7 +29,7 @@ class BookListTableViewCell: UITableViewCell {
                     return
                 }
                 addSpinner()
-                let url = "https://covers.openlibrary.org/b/id/\(image)-S.jpg"
+                let url = "\(NetworkingConstants.coverUrl)\(image)-S.jpg"
                 /// Load image from url and cache the image. ignores fetching image , if already cached image exists
                 coverImageView.downloadImage(from: url) { [weak self] task, status in
                     if !status {
