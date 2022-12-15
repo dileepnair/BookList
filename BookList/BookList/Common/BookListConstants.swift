@@ -11,4 +11,6 @@ import Foundation
 struct BookListConstants {
     static let errorAlertTitle = "Error"
     static let searchErrorText = "Please enter search text"
+    static let searchEmptyText = "Search text is empty"
+    static let footerViewHeight = Double(100)
 }
