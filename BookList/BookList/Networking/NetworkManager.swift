@@ -55,7 +55,6 @@ public struct NetworkManger: NetworkServiceProtocol {
                         }
                         do {
                             let jsonDecoder = JSONDecoder()
-                            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                             let jsonData = try jsonDecoder.decode(Books.self, from: responseData)
                             completion((jsonData), nil)
                         } catch {
