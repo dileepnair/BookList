@@ -45,4 +45,8 @@ class BookListViewModel {
             }
         }
     }
+    
+    func clearList() {
+        self.books.removeAll()
+    }
 }

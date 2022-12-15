@@ -17,37 +17,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hee-v2-fHq">
-                                <rect key="frame" x="0.0" y="91" width="390" height="56"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Zu-95-iq8">
+                                <rect key="frame" x="0.0" y="91" width="390" height="709"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search book" translatesAutoresizingMaskIntoConstraints="NO" id="xuD-gl-DzS">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hee-v2-fHq">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" placeholder="Search book" translatesAutoresizingMaskIntoConstraints="NO" id="xuD-gl-DzS">
+                                                <rect key="frame" x="0.0" y="0.0" width="344.33333333333331" height="56"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5rY-d5-0YM"/>
+                                                </connections>
+                                            </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gh-pJ-3gA">
+                                                <rect key="frame" x="344.33333333333331" y="0.0" width="45.666666666666686" height="56"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Ok"/>
+                                                <connections>
+                                                    <action selector="okayButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="X5b-Tw-HM9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R6g-Dm-gLD">
+                                        <rect key="frame" x="0.0" y="66" width="390" height="643"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookListTableViewCell" rowHeight="100" id="hdX-r7-TJI" customClass="BookListTableViewCell" customModule="BookList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="390" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hdX-r7-TJI" id="kpF-Xm-RFb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-b3-mpd">
+                                                            <rect key="frame" x="20" y="5" width="350" height="90"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUO-8H-Tfh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="90"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <constraints>
+                                                    <constraint firstItem="Vdm-b3-mpd" firstAttribute="leading" secondItem="hdX-r7-TJI" secondAttribute="leading" constant="20.000000000000004" id="3Dd-AA-NKO"/>
+                                                    <constraint firstItem="Vdm-b3-mpd" firstAttribute="centerY" secondItem="hdX-r7-TJI" secondAttribute="centerY" id="54Z-OH-464"/>
+                                                    <constraint firstItem="Vdm-b3-mpd" firstAttribute="top" secondItem="hdX-r7-TJI" secondAttribute="top" constant="5" id="FIS-CT-XRw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Vdm-b3-mpd" secondAttribute="trailing" constant="20" id="b5l-TN-cpX"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="bookTitle" destination="UUO-8H-Tfh" id="5vi-al-4BN"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="5rY-d5-0YM"/>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Sp3-bu-S7l"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="tuA-f2-mum"/>
                                         </connections>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gh-pJ-3gA">
-                                        <rect key="frame" x="315" y="0.0" width="75" height="56"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Ok"/>
-                                        <connections>
-                                            <action selector="okayButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="X5b-Tw-HM9"/>
-                                        </connections>
-                                    </button>
+                                    </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="R6g-Dm-gLD" firstAttribute="top" secondItem="hee-v2-fHq" secondAttribute="bottom" constant="10" id="ICP-oE-459"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hee-v2-fHq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9xi-Ye-QqW"/>
-                            <constraint firstItem="hee-v2-fHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="afH-cP-421"/>
-                            <constraint firstItem="hee-v2-fHq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uCh-43-eTN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Zu-95-iq8" secondAttribute="trailing" id="5s0-r8-gO2"/>
+                            <constraint firstItem="7Zu-95-iq8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7P4-h9-PW7"/>
+                            <constraint firstItem="7Zu-95-iq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QYw-zl-PR1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Zu-95-iq8" secondAttribute="bottom" constant="10" id="YB8-Ip-md1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHu-R0-WBE"/>
                     <connections>
+                        <outlet property="bookListTableView" destination="R6g-Dm-gLD" id="6aa-ta-DEm"/>
                         <outlet property="okayButton" destination="3Gh-pJ-3gA" id="AWS-L3-Tzm"/>
                         <outlet property="searchBar" destination="xuD-gl-DzS" id="cTz-zT-Of2"/>
                     </connections>

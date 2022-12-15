@@ -26,6 +26,7 @@
 		222AB22F294A8C2B0003DE7F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB22E294A8C2B0003DE7F /* NetworkManager.swift */; };
 		222AB232294B23830003DE7F /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB231294B23830003DE7F /* AlertHelper.swift */; };
 		222AB235294B23D60003DE7F /* BookListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB234294B23D60003DE7F /* BookListConstants.swift */; };
+		222AB237294B2BFA0003DE7F /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB236294B2BFA0003DE7F /* BookListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		222AB22E294A8C2B0003DE7F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		222AB231294B23830003DE7F /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		222AB234294B23D60003DE7F /* BookListConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListConstants.swift; sourceTree = "<group>"; };
+		222AB236294B2BFA0003DE7F /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				222AB21C294A5A8F0003DE7F /* BookListViewController.swift */,
+				222AB236294B2BFA0003DE7F /* BookListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				222AB1ED294A58BA0003DE7F /* ViewController.swift in Sources */,
 				222AB1E9294A58BA0003DE7F /* AppDelegate.swift in Sources */,
 				222AB22F294A8C2B0003DE7F /* NetworkManager.swift in Sources */,
+				222AB237294B2BFA0003DE7F /* BookListTableViewCell.swift in Sources */,
 				222AB225294A5B300003DE7F /* Endpoints.swift in Sources */,
 				222AB1EB294A58BA0003DE7F /* SceneDelegate.swift in Sources */,
 				222AB22A294A5D690003DE7F /* Books.swift in Sources */,
