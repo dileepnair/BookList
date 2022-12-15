@@ -15,7 +15,7 @@ enum NetworkResponse: String {
     case outdated = "The url you requested is outdated."
     case failed = "Network request failed."
     case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
+    case unableToDecode = "Not able to decode the response."
 }
 
 /// Network Response type
@@ -28,8 +28,9 @@ enum Result<String>: LocalizedError {
 public protocol NetworkServiceProtocol {
     func getBooks(text: String,
                   page: Int,
-                  completion: @escaping(_ books: Books?, _ error: String?) -> Void)
+                  completion: @escaping (_ books: Books?, _ error: String?) -> Void)
 }
+
 /// Network manager which handles network requests in the app
 public struct NetworkManger: NetworkServiceProtocol {
     /// NetworkManger shared instance
@@ -39,8 +40,15 @@ public struct NetworkManger: NetworkServiceProtocol {
     /// Private initialiser
     private init() {}
 
+    /// Get the list of books for search text `text` and for page `page`
+    /// - Parameters:
+    ///   - text: text String value
+    ///   - page: page Int value
+    ///   - completion: completion handler with handles the returned Books and response error string
     public func getBooks(text: String, page: Int, completion: @escaping (Books?, String?) -> Void) {
-        router.request(.bookSearch(text: text, page: page, limit: 10)) { data, response, error in
+        router.request(.bookSearch(text: text,
+                                   page: page,
+                                   limit: NetworkingConstants.booksLimit)) { data, response, error in
             if error != nil {
                 completion(nil, error?.localizedDescription)
             }
@@ -56,7 +64,7 @@ public struct NetworkManger: NetworkServiceProtocol {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let jsonData = try jsonDecoder.decode(Books.self, from: responseData)
-                            completion((jsonData), nil)
+                            completion(jsonData, nil)
                         } catch {
                             print(error)
                             completion(nil, NetworkResponse.unableToDecode.rawValue)

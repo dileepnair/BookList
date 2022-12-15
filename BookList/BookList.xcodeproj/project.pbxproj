@@ -33,6 +33,8 @@
 		222AB244294B5CE60003DE7F /* BookListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222AB243294B5CE60003DE7F /* BookListTableViewCell.xib */; };
 		222AB246294B5FD00003DE7F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB245294B5FD00003DE7F /* UIView+Extension.swift */; };
 		222AB248294B65AF0003DE7F /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB247294B65AF0003DE7F /* Int+Extension.swift */; };
+		222AB24A294B6C0E0003DE7F /* BookListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB249294B6C0E0003DE7F /* BookListViewModelTests.swift */; };
+		222AB24D294B88FA0003DE7F /* BookDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AB24C294B88FA0003DE7F /* BookDetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		222AB243294B5CE60003DE7F /* BookListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListTableViewCell.xib; sourceTree = "<group>"; };
 		222AB245294B5FD00003DE7F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		222AB247294B65AF0003DE7F /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		222AB249294B6C0E0003DE7F /* BookListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModelTests.swift; sourceTree = "<group>"; };
+		222AB24C294B88FA0003DE7F /* BookDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				222AB202294A58C30003DE7F /* BookListTests.swift */,
+				222AB249294B6C0E0003DE7F /* BookListViewModelTests.swift */,
+				222AB24C294B88FA0003DE7F /* BookDetailViewModelTests.swift */,
 			);
 			path = BookListTests;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				222AB203294A58C30003DE7F /* BookListTests.swift in Sources */,
+				222AB24A294B6C0E0003DE7F /* BookListViewModelTests.swift in Sources */,
+				222AB24D294B88FA0003DE7F /* BookDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
