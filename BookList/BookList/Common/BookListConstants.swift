@@ -13,4 +13,6 @@ struct BookListConstants {
     static let searchErrorText = "Please enter search text"
     static let searchEmptyText = "Search text is empty"
     static let footerViewHeight = Double(100)
+    static let bookListTableCellIdentifier = "BookListTableViewCell"
+    static let bookImageCornerRadius = Double(10)
 }

@@ -14,7 +14,7 @@ class BookListViewController: UIViewController {
     let viewModel = BookListViewModel()
     /// Page number for books list , Initial value set to 1
     var page: Int = 1
-    
+    /// Search text string
     var bookSearchText: String = ""
 
     // MARK: IBOutlet properties
@@ -26,8 +26,9 @@ class BookListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        bookListTableView.estimatedRowHeight = 300.0
         reloadTableData()
+        bookListTableView.register(UINib(nibName: "BookListTableViewCell", bundle: nil),
+                                   forCellReuseIdentifier: "BookListTableViewCell")
     }
 
     // MARK: Private methods
@@ -41,6 +42,7 @@ class BookListViewController: UIViewController {
             }
         }
     }
+
     /// Initialise view model with books data
     private func searchBook(with text: String) {
         loadBooks(with: text, page: page)
@@ -86,6 +88,7 @@ class BookListViewController: UIViewController {
 
     // MARK: IBOutlet Methods
 
+    /// Action to be performed on OK button click while search
     @IBAction func okayButtonAction() {
         viewModel.clearList()
         guard let searchText = searchBar.text else {
@@ -110,13 +113,14 @@ class BookListViewController: UIViewController {
     }
 }
 
+/// Tableview delegate and datasource methods
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.books.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "BookListTableViewCell"
+        let identifier = BookListConstants.bookListTableCellIdentifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier,
                                                     for: indexPath) as? BookListTableViewCell {
             cell.configure(book: viewModel.books[indexPath.row])
@@ -124,12 +128,28 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedBook = viewModel.books[indexPath.row]
+        /// Navigates to Book details view when a book is selected from the list
+        guard let viewController = storyboard?.instantiateViewController(
+            identifier: "BookDetailsViewController",
+            creator: { coder in
+                BookDetailsViewController(with: selectedBook, coder: coder)
+            }
+        ) else {
+            fatalError("Failed to create Book Details VC")
+        }
+        navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 /// Error handler which presents error alert in view controller
 extension BookListViewController: ErrorHandler {}
 
 // MARK: UIScrollViewDelegate method
+
 extension BookListViewController: UIScrollViewDelegate {
     /// Load the next page on scroll towards the last row in the tableview list
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -138,12 +158,12 @@ extension BookListViewController: UIScrollViewDelegate {
         /// towards the end of the loaded list
         /// Then , start loading the next 10 records. page variable is the page number
         if position > ((bookListTableView.contentSize.height) - scrollView.frame.size.height) {
-            self.bookListTableView.tableFooterView = createFooterView()
-            guard !(self.viewModel.isNetworkCallInProgress) else {
+            bookListTableView.tableFooterView = createFooterView()
+            guard !(viewModel.isNetworkCallInProgress) else {
                 return
             }
-            self.page += 1
-            self.loadBooks(with: bookSearchText, page: self.page)
+            page += 1
+            loadBooks(with: bookSearchText, page: page)
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Book list view model
 class BookListViewModel {
     /// closure to update the UI
     var reloadTableView: (() -> Void)?
@@ -27,6 +28,13 @@ class BookListViewModel {
         self.service = service
     }
 
+    // MARK: Internal methods
+
+    /// Load books with search text , page number
+    /// - Parameters:
+    ///   - text: text String value
+    ///   - page: page Int value
+    ///   - completion: handles the response returns status Bool value and error if any
     func loadBooks(with text: String,
                    page: Int,
                    completion: @escaping (Bool, String?) -> Void) {
@@ -42,10 +50,12 @@ class BookListViewModel {
                 }
                 self?.books.append(contentsOf: books.docs)
                 self?.isNetworkCallInProgress = false
+                completion(true, nil)
             }
         }
     }
-    
+
+    /// Clears the books list
     func clearList() {
         self.books.removeAll()
     }
