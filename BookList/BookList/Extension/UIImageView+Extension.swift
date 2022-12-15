@@ -22,14 +22,14 @@ extension UIImageView {
             self.image = imageToCache
             completion(nil, true)
         }
-        // Download the image asynchronously
+        /// Download the image asynchronously
         task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let err = error {
                 print(err)
                 completion(nil, false)
             }
             DispatchQueue.main.async {
-                // create UIImage
+                /// create UIImage
                 guard let data = data, let imageToCache = UIImage(data: data) else {
                     completion(nil, false)
                     return

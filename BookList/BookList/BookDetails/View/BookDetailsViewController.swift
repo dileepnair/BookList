@@ -14,7 +14,6 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-
     @IBOutlet weak var coverImageView: UIImageView!
     /// BookDetailsViewModel instance
     lazy var viewModel = BookDetailsViewModel()
@@ -41,7 +40,7 @@ class BookDetailsViewController: UIViewController {
                 guard let image = book.cover else {
                     return
                 }
-                let url = "https://covers.openlibrary.org/b/id/\(image)-L.jpg"
+                let url = "\(NetworkingConstants.coverUrl)\(image)-L.jpg"
                 self.coverImageView.downloadImage(from: url) { _, status in
                     if !status {
                         DispatchQueue.main.async {
