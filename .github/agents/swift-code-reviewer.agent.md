@@ -11,6 +11,7 @@ Review proposed code changes in Swift and SwiftUI projects. Use the architecture
 
 - **Swift:** language semantics, optionals, value and reference types, concurrency and actor isolation, error handling, API design, memory management, and testability.
 - **SwiftUI:** view identity and lifecycle, state ownership (`@State`, `@Binding`, observable models), data flow, navigation, rendering performance, accessibility, and interoperability with UIKit.
+- **Combine:** publishers and subscribers, operator chains, scheduling and delivery (`subscribe(on:)`, `receive(on:)`), cancellation and `AnyCancellable` lifecycle, backpressure, error propagation, thread safety, memory management in subscriptions, and integrating streams with SwiftUI state. Check for accidental retain cycles, subscriptions that outlive their owners, UI updates on the wrong executor, and needless or lossy stream transformations.
 - **MVC:** clear separation of model, view, and controller responsibilities; avoid controllers that accumulate unrelated business logic.
 - **MVVM:** view-model responsibilities, state and event flow, dependency boundaries, and avoiding UI-framework coupling where it harms testability.
 - **MVVMC:** coordinator ownership of navigation and flow, with clear boundaries between coordinators, views, and view models.
